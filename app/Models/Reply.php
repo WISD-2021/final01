@@ -13,4 +13,9 @@ class Reply extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function comments()
+    {
+        return $this->belongsTo(Comment::class);
+    }
 }

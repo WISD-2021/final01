@@ -18,4 +18,9 @@ class Comment extends Model
     {
         return $this->belongsTo(Recipe::class);
     }
+
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
 }
