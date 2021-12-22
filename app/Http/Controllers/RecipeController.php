@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Recipe;
 use App\Http\Requests\StoreRecipeRequest;
 use App\Http\Requests\UpdateRecipeRequest;
+use Illuminate\Support\Facades\DB;
 
 class RecipeController extends Controller
 {
@@ -15,7 +16,11 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        //
+        $data = DB::table('recipes')->orderBy('id','ASC')->get();
+        return view('index', ['recipes' => $data]);
+        /*$recipes = Recipe::orderBy('id', 'DESC')->get();
+        $data = ['recipes' => $recipes];
+        return view('index');*/
     }
 
     /**
