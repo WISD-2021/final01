@@ -18,9 +18,6 @@ class RecipeController extends Controller
     {
         $data = DB::table('recipes')->orderBy('id','ASC')->get();
         return view('index', ['recipes' => $data]);
-        /*$recipes = Recipe::orderBy('id', 'DESC')->get();
-        $data = ['recipes' => $recipes];
-        return view('index');*/
     }
 
     /**

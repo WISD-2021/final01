@@ -26,6 +26,7 @@
                     @foreach($recipes as $recipe)
                     <div class="post-preview">
                         <a href="#">
+                            <img src="../img/recipe/{{$recipe->photo}}" width="300" height="300">
                             <h2 class="post-title">
                                 {{ $recipe->name }}
                             </h2>
@@ -33,10 +34,12 @@
                                 {{Str::limit($recipe->content,150)}}
                             </h3>
                         </a>
+                        <hr>
+                        @endforeach
                         <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
                     </div>
                     <hr>
-            @endforeach
+
             <!-- Pager -->
                 <ul class="pager">
                     <li class="next">
