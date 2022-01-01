@@ -20,7 +20,7 @@
                 </li>
                 <li>
 
-                    <a href="#">所有食譜</a>
+                    <a href="http://localhost:8000/">所有食譜</a>
                 </li>
             </ul>
         </div>

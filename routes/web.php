@@ -29,4 +29,3 @@ Route::resource('favorites', \App\Http\Controllers\FavoriteController::class);
 Route::resource('comments', \App\Http\Controllers\CommentController::class);
 Route::resource('replies', \App\Http\Controllers\ReplyController::class);
 
-Route::get('recipes', [\App\Http\Controllers\RecipeController::class, 'index'])->name('index');

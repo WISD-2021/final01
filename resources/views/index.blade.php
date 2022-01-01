@@ -22,30 +22,32 @@
     <!-- Main Content -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-1">
                     @foreach($recipes as $recipe)
                     <div class="post-preview">
                         <img src="../img/recipe/{{$recipe->photo}}" width="300" height="300">
                         <a href="#">
-                            <h2 class="post-title">
+                            <h4 class="post-title">
                                 {{ $recipe->name }}
-                            </h2>
+                            </h4>
                         </a>
-                            <h3 class="post-subtitle" style="white-space: pre-line">
-                                簡介：{{Str::limit($recipe->content,150)}}<br>
+                    </div>
+                <!--  <div>
+                        <h3 class="post-subtitle" style="white-space: pre-line">
+                               簡介：{{Str::limit($recipe->content,150)}}<br>
                                 幾人份：{{ $recipe->person }}<br>
                                 製作時長：{{ $recipe->time }}<br>
                                 所需材料：<br>{{ $recipe->material }}<br>
                                 步驟：<br>{{ $recipe->step }}<br>
                             </h3>
 
-                        <hr>
+                        <hr>-->
                         @endforeach
-                        <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
-                    </div>
-                    <hr>
+                        <p class="post-meta">Posted by <a href="#">Start Bootstrap</a></p>
+                        <!-- </div>-->
+                            <hr>
 
-            <!-- Pager -->
+                    <!-- Pager -->
                 <ul class="pager">
                     <li class="next">
                         <a href="#">Older Posts &rarr;</a>
