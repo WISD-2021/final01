@@ -14,13 +14,14 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li>
-
-                        <a href="#">首頁</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('home.index')}}">首頁</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('recipes.index')}}">所有食譜</a>
                 </li>
                 <li>
-
-                    <a href="http://localhost:8000/">所有食譜</a>
+                    <a href="#">登出</a>
                 </li>
             </ul>
         </div>
