@@ -20,8 +20,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('recipes.index')}}">所有食譜</a>
                 </li>
-                <li>
-                    <a href="#">登出</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{__('登出')}}</a>
+                    <form id="logout-form" action="{{route('logout')}}" method="POST" style="display:none;">@csrf</form>
                 </li>
             </ul>
         </div>
