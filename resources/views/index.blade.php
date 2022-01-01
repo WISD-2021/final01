@@ -10,9 +10,9 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1><font color="#8A6BBE">Recipes</font></h1>
+                        <h1><font color="#a0522d">Recipes</font></h1>
                         <hr class="small">
-                        <span class="subheading"><font color="#8A6BBE">Welcome</font></span>
+                        <span class="subheading"><font color="#a0522d"><b>Welcome</b></font></span>
                     </div>
                 </div>
             </div>
