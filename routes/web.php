@@ -13,12 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/test', function () {
-    return view('index');
-});
+Route::middleware(['auth:sanctum', 'verified'])->get('/',[\App\Http\Controllers\HomeController::class, 'index'])
+    ->name('home.index');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -28,6 +24,7 @@ Route::resource('recipes', \App\Http\Controllers\RecipeController::class);
 Route::resource('favorites', \App\Http\Controllers\FavoriteController::class);
 Route::resource('comments', \App\Http\Controllers\CommentController::class);
 Route::resource('replies', \App\Http\Controllers\ReplyController::class);
+
 
 Route::prefix('manage')->group(function () {
     Route::get('/', [\App\Http\Controllers\AdminDashboardController::class, 'index'])->name('manage.dashboard.index');
