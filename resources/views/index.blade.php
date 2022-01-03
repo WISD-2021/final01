@@ -26,27 +26,32 @@
                     @foreach($recipes as $recipe)
                     <div class="post-preview">
                         <img src="../img/recipe/{{$recipe->photo}}" width="300" height="300">
-                        <a href="#">
+                        <a href="{{route('recipes.show',$recipe->id)}}">
                             <h4 class="post-title">
                                 {{ $recipe->name }}
                             </h4>
                         </a>
                     </div>
-                <!--  <div>
+                    @if(isset($recipe2))
+                        @foreach($recipe2 as $show)
+                            @if($show->id == $recipe->id)
+                    <div>
                         <h3 class="post-subtitle" style="white-space: pre-line">
-                               簡介：{{Str::limit($recipe->content,150)}}<br>
-                                幾人份：{{ $recipe->person }}<br>
-                                製作時長：{{ $recipe->time }}<br>
-                                所需材料：<br>{{ $recipe->material }}<br>
-                                步驟：<br>{{ $recipe->step }}<br>
-                            </h3>
+                                簡介：{{Str::limit($show->content,150)}}<br>
+                                幾人份：{{ $show->person }}<br>
+                                製作時長：{{ $show->time }}<br>
+                                所需材料：<br>{{ $show->material }}<br>
+                                步驟：<br>{{ $show->step }}<br>
+                        </h3>
 
-                        <hr>-->
+                        <hr>
+                    </div>
+                            @endif
                         @endforeach
-                        <p class="post-meta">Posted by <a href="#">Start Bootstrap</a></p>
-                        <!-- </div>-->
+                    @endif
                             <hr>
-
+                    @endforeach
+                        <p class="post-meta">Posted by <a href="#">Start Bootstrap</a></p>
                     <!-- Pager -->
                 <ul class="pager">
                     <li class="next">

@@ -47,9 +47,10 @@ class RecipeController extends Controller
      * @param  \App\Models\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function show(Recipe $recipe)
+    public function show($recipe)
     {
-        //
+        $data2 = DB::table('recipes')->where('id',$recipe)->get();
+        return view('index', ['recipes' => $data2], ['recipe2' => $data2]);
     }
 
     /**
