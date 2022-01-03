@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class HomeController extends Controller
+class AdminDashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = DB::table('recipes')->orderBy('id','ASC')->get();
-        return view('index', ['recipes' => $data]);
+        return view('manage.dashboard.index');
     }
 
     /**
