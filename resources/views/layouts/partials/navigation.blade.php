@@ -15,12 +15,14 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-
-                        <a href="#">首頁</a>
+                        <a href="{{route('home.index')}}">首頁</a>
                 </li>
                 <li>
-
-                    <a href="#">所有食譜</a>
+                    <a href="{{route('recipes.index')}}">所有食譜</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{__('登出')}}</a>
+                    <form id="logout-form" action="{{route('logout')}}" method="POST" style="display:none;">@csrf</form>
                 </li>
             </ul>
         </div>
