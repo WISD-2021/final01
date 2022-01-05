@@ -25,6 +25,7 @@ Route::resource('favorites', \App\Http\Controllers\FavoriteController::class);
 Route::resource('comments', \App\Http\Controllers\CommentController::class);
 Route::resource('replies', \App\Http\Controllers\ReplyController::class);
 
+Route::get('recipes/search', [\App\Http\Controllers\RecipeController::class, 'search'])->name('recipes.search');
 
 Route::prefix('manage')->group(function () {
     Route::get('/', [\App\Http\Controllers\AdminDashboardController::class, 'index'])->name('manage.dashboard.index');
@@ -33,6 +34,6 @@ Route::prefix('manage')->group(function () {
     Route::get('recipes/create', [\App\Http\Controllers\RecipemanageController::class, 'create'])->name('manage.recipes.create');
     Route::get('recipes/{id}/edit', [\App\Http\Controllers\RecipemanageController::class, 'edit'])->name('manage.recipes.edit');
     Route::patch('recipes/{post}', [\App\Http\Controllers\RecipemanageController::class, 'update'])->name('manage.recipes.update');
-    Route::delete('recipes/{post}', [\App\Http\Controllers\RecipemanageController::class, 'destory'])->name('manage.recipes.destroy');
+    Route::delete('recipes/{post}', [\App\Http\Controllers\RecipemanageController::class, 'destroy'])->name('manage.recipes.destroy');
 });
 
