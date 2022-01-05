@@ -33,6 +33,6 @@ Route::prefix('manage')->group(function () {
     Route::get('recipes/create', [\App\Http\Controllers\RecipemanageController::class, 'create'])->name('manage.recipes.create');
     Route::get('recipes/{id}/edit', [\App\Http\Controllers\RecipemanageController::class, 'edit'])->name('manage.recipes.edit');
     Route::patch('recipes/{post}', [\App\Http\Controllers\RecipemanageController::class, 'update'])->name('manage.recipes.update');
-    Route::delete('recipes/{post}', [\App\Http\Controllers\RecipemanageController::class, 'destory'])->name('manage.recipes.destory');
+    Route::delete('recipes/{post}', [\App\Http\Controllers\RecipemanageController::class, 'destory'])->name('manage.recipes.destroy');
 });
 

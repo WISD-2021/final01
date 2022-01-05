@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Recipe;
-use App\Http\Requests\StoreRecipeRequest;
-use App\Http\Requests\UpdateRecipeRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class RecipeController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -33,10 +31,10 @@ class RecipeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreRecipeRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRecipeRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -44,22 +42,21 @@ class RecipeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Recipe  $recipe
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($recipe)
+    public function show($id)
     {
-        $data2 = DB::table('recipes')->where('id',$recipe)->get();
-        return view('index', ['recipes' => $data2], ['recipe2' => $data2]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Recipe  $recipe
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Recipe $recipe)
+    public function edit($id)
     {
         //
     }
@@ -67,11 +64,11 @@ class RecipeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateRecipeRequest  $request
-     * @param  \App\Models\Recipe  $recipe
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRecipeRequest $request, Recipe $recipe)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -79,10 +76,10 @@ class RecipeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Recipe  $recipe
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Recipe $recipe)
+    public function destroy($id)
     {
         //
     }

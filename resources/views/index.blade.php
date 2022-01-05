@@ -28,6 +28,9 @@
                         <img src="../img/recipe/{{$recipe->photo}}" width="300" height="300">
                         <a href="#">
                             <h4 class="post-title">
+
+                        <a href="{{route('recipes.show',$recipe->id)}}">
+                            <h2 class="post-title">
                                 {{ $recipe->name }}
                             </h4>
                         </a>
@@ -48,6 +51,29 @@
                             <hr>
 
                     <!-- Pager -->
+
+                    @if(isset($recipe2))
+                        @foreach($recipe2 as $show)
+                            @if($show->id == $recipe->id)
+                    <div>
+                        <h3 class="post-subtitle" style="white-space: pre-line">
+                                簡介：{{Str::limit($show->content,150)}}<br>
+                                幾人份：{{ $show->person }}<br>
+                                製作時長：{{ $show->time }}<br>
+                                所需材料：<br>{{ $show->material }}<br>
+                                步驟：<br>{{ $show->step }}<br>
+                        </h3>
+                        <hr>
+                    </div>
+                            @endif
+                        @endforeach
+                            <p class="post-meta">Posted by <a href="#">Start Bootstrap</a></p>
+                    @endif
+                            <hr>
+                    @endforeach
+
+
+            <!-- Pager -->
                 <ul class="pager">
                     <li class="next">
                         <a href="#">Older Posts &rarr;</a>
