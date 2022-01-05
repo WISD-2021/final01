@@ -36,29 +36,33 @@
 
                 <div class="form-group">
                     <label for="title">標題：</label>
-                    <input name="title" class="form-control" placeholder="請輸入食譜標題" value="{{old('title',$recipe->title)}}">
+                    <input name="title" class="form-control" placeholder="請輸入食譜標題">
                 </div>
 
                 <div class="form-group">
                     <label for="content">簡介：</label>
-                    <textarea id="content" name="content" class="form-control" rows="10"> {{ old('content',$recipe->content) }}</textarea>
+                    <textarea id="content" name="content" class="form-control" rows="10"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="content">幾人份：</label>
-                    <textarea id="content" name="content" class="form-control" rows="10"> {{ old('person',$recipe->person) }}</textarea>
+                    <label for="person">幾人份：</label>
+                    <textarea id="person" name="person" class="form-control" rows="10"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="content">製作時長：</label>
-                    <textarea id="content" name="content" class="form-control" rows="10"> {{ old('time',$recipe->time) }}</textarea>
+                    <label for="time">製作時長：</label>
+                    <textarea id="time" name="time" class="form-control" rows="10"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="content">步驟：</label>
-                    <textarea id="content" name="content" class="form-control" rows="10"> {{ old('step',$recipe->step) }}</textarea>
+                    <label for="step">步驟：</label>
+                    <textarea id="step" name="step" class="form-control" rows="10"></textarea>
                 </div>
 
+                <div class="form-group">
+                    <label for="img">圖片：</label>
+                    <textarea id="img" name="step" class="form-control" rows="10"></textarea>
+                </div>
 
                 <div class="text-right">
                     <button type="submit" class="btn btn-success">新增</button>

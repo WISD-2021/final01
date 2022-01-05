@@ -10,9 +10,9 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1><font color="#8A6BBE">Recipes</font></h1>
+                        <h1><font color="#a0522d">Recipes</font></h1>
                         <hr class="small">
-                        <span class="subheading"><font color="#8A6BBE">Welcome</font></span>
+                        <span class="subheading"><font color="#a0522d"><b>Welcome</b></font></span>
                     </div>
                 </div>
             </div>
@@ -32,17 +32,22 @@
                     </svg>
                 </button>
             </form>
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-1">
                     @foreach($recipes as $recipe)
                     <div class="post-preview">
                         <img src="../img/recipe/{{$recipe->photo}}" width="300" height="300">
-
-                        <a href="{{route('recipes.show',$recipe->id)}}">
-                            <h2 class="post-title">
+                        <a href="#">
+                            <h4 class="post-title">
+                                <a href="{{route('recipes.show',$recipe->id)}}">
                                 {{ $recipe->name }}
-                            </h2>
+                            </h4>
                         </a>
                     </div>
+
+                        @endforeach
+                        <p class="post-meta">Posted by <a href="#">Start Bootstrap</a></p>
+
+                            <hr>
 
                     @if(isset($recipe2))
                         @foreach($recipe2 as $show)
@@ -83,7 +88,6 @@
             @endforeach
 
             <!-- Pager -->
-
                 <ul class="pager">
                     <li class="next">
                         <a href="{{route('home.index')}}">Back &rarr;</a>
