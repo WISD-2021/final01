@@ -13,7 +13,7 @@
     </div>
     <!-- /.row -->
 
-    <div class="row" style="margin-bottom: 20px; text-align: right">
+    <div class="row" style="margin-bottom: 10px; text-align: right">
         <div class="col-lg-12">
             <a href="{{ route('manage.recipes.create') }}" class="btn btn-success">建立新食譜</a>
         </div>
@@ -50,7 +50,7 @@
 
                             <td>
                                 <a class="btn btn-sm btn-primary" href="{{ route('manage.recipes.edit', $recipe->id) }}">編輯</a>
-                                <form action="{{ route('manage.recipes.destory',  $recipe->id) }}" method="POST" style="display:inline">
+                                <form action="{{ route('manage.recipes.destroy',  $recipe->id) }}" method="POST" style="display:inline">
                                     @method('DELETE')
                                     @csrf
                                     <button class="btn btn-sm btn-danger" type="submit">刪除</button>
@@ -64,4 +64,14 @@
         </div>
     </div>
     <!-- /.row -->
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
 @endsection

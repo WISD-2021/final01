@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Recipe;
 use App\Models\Recipemanage;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreRecipemanageRequest;
 use App\Http\Requests\UpdateRecipemanageRequest;
 
@@ -37,7 +38,7 @@ class RecipemanageController extends Controller
      * @param  \App\Http\Requests\StoreRecipemanageRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRecipemanageRequest $request)
+    public function store(Request $request)
     {
         Recipe::create($request->all());
         return redirect()->route('manage.recipes.index');
