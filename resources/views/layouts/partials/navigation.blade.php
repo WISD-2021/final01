@@ -18,9 +18,6 @@
                     <a href="{{route('home.index')}}">首頁</a>
                 </li>
                 <li>
-                    <a href="{{route('recipes.index')}}">所有食譜</a>
-                </li>
-                <li>
                     <a href="{{route('manage.recipes.index')}}">管理後台</a>
                 </li>
                 <li class="nav-item">

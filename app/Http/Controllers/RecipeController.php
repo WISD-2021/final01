@@ -53,11 +53,11 @@ class RecipeController extends Controller
         return view('index', ['recipes' => $data2], ['recipe2' => $data2]);
     }
 
-    public function search($search)
+    public function search()
     {
         $search=$_GET['search'];
         $data3 = DB::table('recipes')->where('name', 'like', '%'.$search.'%')->get();
-        return view('index', ['recipes' => $data3], ['search2' => $data3]);
+        return view('index', ['recipes' => $data3]);
 
     }
     /**
