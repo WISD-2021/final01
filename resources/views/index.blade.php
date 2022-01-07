@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', '所有食譜')
+@section('title', '食譜')
 
 @section('content')
     <!-- Page Header -->
@@ -45,7 +45,6 @@
                     </div>
 
                         @endforeach
-                        <p class="post-meta">Posted by <a href="#">Start Bootstrap</a></p>
 
                             <hr>
 
@@ -68,24 +67,23 @@
                             <hr>
 
 
-                        @if(isset($search2))
+{{--                        @if(isset($search2))--}}
 
-                            @foreach($search2 as $ss)
-                                @if($ss->name == $recipe->name)
-                                    <div>
-                                        <h3 class="post-subtitle" style="white-space: pre-line">
-                                            簡介：{{Str::limit($ss->content,150)}}<br>
-                                            幾人份：{{ $ss->person }}<br>
-                                            製作時長：{{ $ss->time }}<br>
-                                            所需材料：<br>{{ $ss->material }}<br>
-                                            步驟：<br>{{ $ss->step }}<br>
-                                        </h3>
-                                        <hr>
-                                    </div>
-                            @endif
-                        @endforeach
-                    @endif
-            @endforeach
+{{--                            @foreach($search2 as $ss)--}}
+{{--                                @if($ss->name == $recipe->name)--}}
+{{--                                    <div>--}}
+{{--                                        <h3 class="post-subtitle" style="white-space: pre-line">--}}
+{{--                                            簡介：{{Str::limit($ss->content,150)}}<br>--}}
+{{--                                            幾人份：{{ $ss->person }}<br>--}}
+{{--                                            製作時長：{{ $ss->time }}<br>--}}
+{{--                                            所需材料：<br>{{ $ss->material }}<br>--}}
+{{--                                            步驟：<br>{{ $ss->step }}<br>--}}
+{{--                                        </h3>--}}
+{{--                                        <hr>--}}
+{{--                                    </div>--}}
+{{--                            @endif--}}
+{{--                        @endforeach--}}
+{{--                    @endif--}}
 
             <!-- Pager -->
                 <ul class="pager">
