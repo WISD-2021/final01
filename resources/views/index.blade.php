@@ -23,7 +23,7 @@
     <div class="container">
         <div class="row">
             <form method="GET" action='{{route('recipes.search')}}'>
-                <div class="search" style="position:absolute; right:72px; font-size: 28px">
+                <div class="" style="position:absolute; right:72px; font-size: 28px ">
                     <input type="text" id="search" name="search" >
                 </div>
                 <button class="btn btn-outline-dark" type="submit" style="background-color: lavender; position:absolute; right:4px;">
@@ -34,13 +34,13 @@
             </form>
             <div class="col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-1">
                     @foreach($recipes as $recipe)
-                    <div class="post-preview">
-                        <img src="../img/recipe/{{$recipe->photo}}" width="300" height="300">
+                    <div class="div1">
+                        <img src="../img/recipe/{{$recipe->photo}}" width="200" height="200">
                         <a href="#">
-                            <h4 class="post-title">
+                            <h3 class="post-title">
                                 <a href="{{route('recipes.show',$recipe->id)}}">
                                 {{ $recipe->name }}
-                            </h4>
+                            </h3>
                         </a>
                     </div>
 
@@ -52,7 +52,7 @@
                         @foreach($recipe2 as $show)
                             @if($show->id == $recipe->id)
                     <div>
-                        <h3 class="post-subtitle" style="white-space: pre-line">
+                        <h3 class="div2" style="white-space: pre-line">
                                 簡介：{{Str::limit($show->content,150)}}<br>
                                 幾人份：{{ $show->person }}<br>
                                 製作時長：{{ $show->time }}<br>
@@ -67,30 +67,8 @@
                             <hr>
 
 
-{{--                        @if(isset($search2))--}}
-
-{{--                            @foreach($search2 as $ss)--}}
-{{--                                @if($ss->name == $recipe->name)--}}
-{{--                                    <div>--}}
-{{--                                        <h3 class="post-subtitle" style="white-space: pre-line">--}}
-{{--                                            簡介：{{Str::limit($ss->content,150)}}<br>--}}
-{{--                                            幾人份：{{ $ss->person }}<br>--}}
-{{--                                            製作時長：{{ $ss->time }}<br>--}}
-{{--                                            所需材料：<br>{{ $ss->material }}<br>--}}
-{{--                                            步驟：<br>{{ $ss->step }}<br>--}}
-{{--                                        </h3>--}}
-{{--                                        <hr>--}}
-{{--                                    </div>--}}
-{{--                            @endif--}}
-{{--                        @endforeach--}}
-{{--                    @endif--}}
-
             <!-- Pager -->
-                <ul class="pager">
-                    <li class="next">
-                        <a href="{{route('home.index')}}">Back &rarr;</a>
-                    </li>
-                </ul>
+
             </div>
         </div>
     </div>

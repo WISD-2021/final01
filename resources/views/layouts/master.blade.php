@@ -28,7 +28,27 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
 
+
+        .div1
+        {
+            float:left;
+            margin-left:5%;
+            margin-right:5%;
+            margin-top:8%;
+            margin-bottom:2%;
+        }
+        .div2
+        {
+             float:left;
+             margin-left:5%;
+             margin-right:5%;
+             margin-top:8%;
+             margin-bottom:2%;
+         }
+
+    </style>
 </head>
 
 <body>
@@ -44,7 +64,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
+                <ul class="pager">
+                    <li class="next">
+                        <a href="{{route('home.index')}}">Home &rarr;</a>
+                    </li>
+                </ul>
                 <p class="copyright text-muted">Copyright &copy; Your Website 2021</p>
             </div>
         </div>
