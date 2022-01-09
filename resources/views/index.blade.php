@@ -49,6 +49,10 @@
                     @if(isset($recipe2))
                         @foreach($recipe2 as $show)
                             @if($show->id == $recipe->id)
+                                <?php
+                                    session_start();
+                                    $_SESSION['id']=$show->id;
+                                ?>
                     <div>
                         <h3 class="div2" style="white-space: pre-line">
                                 簡介：{{Str::limit($show->content,150)}}<br>
@@ -58,7 +62,7 @@
                                 步驟：<br>{{ $show->step }}<br>
                         </h3>
                         <div  class="div2">
-                            <a href="{{route('recipes.create',$show->id)}}">加入我的最愛</a>
+{{--                            <a href="{{route('recipes.create',$show->id)}}">加入我的最愛</a>--}}
                             <form action='{{route('recipes.create',$show->id)}}'>
                                 <button class="btn btn-outline-dark" type="submit" style="background-color: lavender;">加入我的最愛</button>
                             </form>

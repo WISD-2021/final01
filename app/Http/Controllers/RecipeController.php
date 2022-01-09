@@ -26,10 +26,10 @@ class RecipeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($status='no')
     {
-        //$id=$_GET['id'];
-        echo "<script>alert('test');</script>";
+        session_start();
+        $id=$_SESSION['id'];
         if(Auth::check())
         {
             $data4 = DB::table('favorites')->where('recipe_id',$id)->get();
@@ -45,7 +45,7 @@ class RecipeController extends Controller
             }
             else if($status=='yes')
             {
-                echo "<script>alert('該食譜已在我的最愛');</script>";
+                echo "<script>alert('該食譜已在我的最愛'); location.href='../';</script>";
             }
         }
     }
