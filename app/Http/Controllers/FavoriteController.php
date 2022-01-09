@@ -36,7 +36,26 @@ class FavoriteController extends Controller
      */
     public function store(StoreFavoriteRequest $request)
     {
-        //
+        echo "<script>alert('已加入我的最愛'); location.href ='../';</script>";
+        if(Auth::check())
+        {
+            $data4 = DB::table('favorites')->where('recipe_id',$request)->get();
+            foreach ($data4 as $favorite)
+            {
+                if($favorite->user_id==auth()->user()->id)
+                    $status='yes';
+            }
+            if ($status=='no')
+            {
+                DB::table('favorites')->insert(['user_id'=>auth()->user()->id, 'recipe_id'=>$request]);
+                echo "<script>alert('已加入我的最愛'); location.href='../';</script>";
+            }
+            else if($status=='yes')
+            {
+                echo "<script>alert('該食譜已在我的最愛');</script>";
+            }
+        }
+        //return view('recipes.index');
     }
 
     /**

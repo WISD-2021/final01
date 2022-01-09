@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>@yield('title') | My Recipes</title>
+    <title>@yield('title') | Recipes</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -29,26 +29,24 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-
-
         .div1
         {
-            float:left;
-            margin-left:5%;
-            margin-right:5%;
-            margin-top:8%;
-            margin-bottom:2%;
+            float: left;
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-top: 8%;
+            margin-bottom: 2%;
         }
         .div2
         {
-             float:left;
-             margin-left:5%;
-             margin-right:5%;
-             margin-top:8%;
-             margin-bottom:2%;
-         }
-
+            float: left;
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-top: 3%;
+            margin-bottom: 2%;
+        }
     </style>
+
 </head>
 
 <body>
@@ -65,11 +63,9 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="pager">
-                    <li class="next">
-                        <a href="{{route('home.index')}}">Home &rarr;</a>
-                    </li>
+                    <a href="{{route('home.index')}}">Home &rarr;</a>
                 </ul>
-                <p class="copyright text-muted">Copyright &copy; Your Website 2021</p>
+                <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
             </div>
         </div>
     </div>
