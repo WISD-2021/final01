@@ -94,8 +94,10 @@ class FavoriteController extends Controller
      * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Favorite $favorite)
+    public function destroy($id)
     {
-        //
+        Favorite::destroy($id);
+        echo "<script>alert('已將該食譜移出我的最愛')</script>";
+        return redirect()->route('favorites.index');
     }
 }

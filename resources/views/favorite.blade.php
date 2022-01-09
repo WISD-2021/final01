@@ -32,6 +32,14 @@
                                                 {{ $recipe->name }}
                                             </h3>
                                         </a>
+                                        <div  class="div2">
+                                           <form action="{{ route('favorites.destroy',$favorite->id) }}" method="POST" style="display: inline">
+                                               @method('DELETE')
+                                               @csrf
+                                              <button class="btn btn-outline-dark" type="submit">移出我的最愛</button>
+                                           </form>
+{{--                                            <a href="{{ route('favorites.destroy',$favorite->id) }}" class="btn btn-outline-dark" onClick="return confirm('確定要移出此食譜?')">移出我的最愛</a>--}}
+                                        </div>
                                     </div>
                                 @endif
                           @endif
