@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Recipe;
 use App\Http\Requests\StoreRecipeRequest;
 use App\Http\Requests\UpdateRecipeRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class RecipeController extends Controller
@@ -27,10 +28,29 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        //
+        //$id=$_GET['id'];
+        echo "<script>alert('test');</script>";
+        if(Auth::check())
+        {
+            $data4 = DB::table('favorites')->where('recipe_id',$id)->get();
+            foreach ($data4 as $favorite)
+            {
+                if($favorite->user_id==auth()->user()->id)
+                    $status='yes';
+            }
+            if ($status=='no')
+            {
+                DB::table('favorites')->insert(['user_id'=>auth()->user()->id, 'recipe_id'=>$id]);
+                echo "<script>alert('已加入我的最愛'); location.href='../';</script>";
+            }
+            else if($status=='yes')
+            {
+                echo "<script>alert('該食譜已在我的最愛');</script>";
+            }
+        }
     }
 
-    /**
+     /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreRecipeRequest  $request
@@ -38,7 +58,25 @@ class RecipeController extends Controller
      */
     public function store(StoreRecipeRequest $request)
     {
-        //
+        /*echo "<script>alert('test'); location.href ='../';</script>";
+        if(Auth::check())
+        {
+            $data4 = DB::table('favorites')->where('recipe_id',$request)->get();
+            foreach ($data4 as $favorite)
+            {
+                if($favorite->user_id==auth()->user()->id)
+                    $status='yes';
+            }
+            if ($status=='no')
+            {
+                DB::table('favorites')->insert(['user_id'=>auth()->user()->id, 'recipe_id'=>$request]);
+                echo "<script>alert('已加入我的最愛'); location.href='../';</script>";
+            }
+            else if($status=='yes')
+            {
+                echo "<script>alert('該食譜已在我的最愛');</script>";
+            }
+        }*/
     }
 
     /**

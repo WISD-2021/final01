@@ -5,14 +5,15 @@
 @section('content')
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('{{ asset('img/bg.jpg') }}')">
+{{--    <header class="intro-header" style="background-image: url('{{ asset('img/bg.jpg') }}')">--}}
+    <header class="intro-header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1><font color="#a0522d">Recipes</font></h1>
-                        <hr class="small">
-                        <span class="subheading"><font color="#a0522d"><b>Welcome</b></font></span>
+{{--                        <h1><font color="#a0522d">Recipes</font></h1>--}}
+{{--                        <hr class="small">--}}
+{{--                        <span class="subheading"><font color="#a0522d"><b>Welcome</b></font></span>--}}
                     </div>
                 </div>
             </div>
@@ -43,10 +44,7 @@
                             </h3>
                         </a>
                     </div>
-
-                        @endforeach
-
-                            <hr>
+                     @endforeach
 
                     @if(isset($recipe2))
                         @foreach($recipe2 as $show)
@@ -59,12 +57,16 @@
                                 所需材料：<br>{{ $show->material }}<br>
                                 步驟：<br>{{ $show->step }}<br>
                         </h3>
-                        <hr>
+                        <div  class="div2">
+                            <a href="{{route('recipes.create',$show->id)}}">加入我的最愛</a>
+                            <form action='{{route('recipes.create',$show->id)}}'>
+                                <button class="btn btn-outline-dark" type="submit" style="background-color: lavender;">加入我的最愛</button>
+                            </form>
+                        </div>
                     </div>
                             @endif
                         @endforeach
                     @endif
-                            <hr>
 
 
             <!-- Pager -->
