@@ -7,6 +7,8 @@ use App\Models\Recipemanage;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreRecipemanageRequest;
 use App\Http\Requests\UpdateRecipemanageRequest;
+use Illuminate\Support\Facades\DB;
+
 
 class RecipemanageController extends Controller
 {
@@ -40,7 +42,9 @@ class RecipemanageController extends Controller
      */
     public function store(Request $request)
     {
-        Recipe::create($request->all());
+        DB::table('recipes')->insert(['user_id'=>auth()->user()->id,'name'=>$_POST['name'],
+            'content'=>$_POST['content'],'person'=>$_POST['person'],'time'=>$_POST['time'],'material'=>$_POST['material'],
+            'step'=>$_POST['step'],'photo'=>$_POST['photo'],'status'=>$_POST['status']]);
         return redirect()->route('manage.recipes.index');
     }
 
@@ -61,11 +65,11 @@ class RecipemanageController extends Controller
      * @param  \App\Models\Recipemanage  $recipemanage
      * @return \Illuminate\Http\Response
      */
-    public function edit(Recipemanage $recipemanage)
+    public function edit(Recipemanage $recipemanage,$id)
     {
-        $recipe=Recipe::find($id);
-        $data=['post'=>$recipe];
-        return view('manage.recipes.edit',$data);
+        $data = Recipe::find($id);
+        return view('manage.recipes.edit', ['recipe' => $data]);
+
     }
 
     /**
@@ -75,11 +79,17 @@ class RecipemanageController extends Controller
      * @param  \App\Models\Recipemanage  $recipemanage
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRecipemanageRequest $request, Recipemanage $recipemanage)
+    public function update(UpdateRecipemanageRequest $request, Recipemanage $recipemanage,$id)
     {
         $recipe=Recipe::find($id);
-        $recipe->update($request->all());
-        return redirect()->route('manage.recipes.index');
+        $recipe->update(['name' => $_POST['name']]);
+        $recipe->update(['content' => $_POST['content']]);
+        $recipe->update(['person' => $_POST['person']]);
+        $recipe->update(['quan' => $_POST['quantity']]);
+        $recipe->update(['content' => $_POST['content']]);
+        $recipe->update(['photo' => $_POST['photo']]);
+
+        return redirect()->route('admin.recipes.index');
     }
 
     /**
@@ -88,7 +98,7 @@ class RecipemanageController extends Controller
      * @param  \App\Models\Recipemanage  $recipemanage
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Recipemanage $recipemanage)
+    public function destroy(Recipemanage $recipemanage,$id)
     {
         Recipe::destroy($id);
         return redirect()->route('manage.recipes.index');

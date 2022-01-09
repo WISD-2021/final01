@@ -34,7 +34,6 @@
                 @method('POST')
                 @csrf
 
-
                 <div class="form-group">
                     <label for="name">標題：</label>
                     <input name="name" class="form-control" placeholder="請輸入食譜標題">
