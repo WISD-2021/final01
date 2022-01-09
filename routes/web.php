@@ -26,7 +26,6 @@ Route::resource('comments', \App\Http\Controllers\CommentController::class);
 Route::resource('replies', \App\Http\Controllers\ReplyController::class);
 
 Route::get('recipessearch', [\App\Http\Controllers\RecipeController::class, 'search'])->name('recipes.search');
-//Route::get('/recipes/{id}', [\App\Http\Controllers\FavoriteController::class, 'add'])->name('recipes.add');
 
 Route::prefix('manage')->group(function () {
     Route::get('/', [\App\Http\Controllers\AdminDashboardController::class, 'index'])->name('manage.dashboard.index');

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Favorite;
 use App\Http\Requests\StoreFavoriteRequest;
 use App\Http\Requests\UpdateFavoriteRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class FavoriteController extends Controller
 {
@@ -15,7 +17,12 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        //
+        if(Auth::check())
+        {
+            $data = DB::table('favorites')->orderBy('id','ASC')->get();
+            $data2 = DB::table('recipes')->orderBy('id','ASC')->get();
+            return view('favorite', ['favorites' => $data],['recipes' => $data2]);
+        }
     }
 
     /**
@@ -36,26 +43,15 @@ class FavoriteController extends Controller
      */
     public function store(StoreFavoriteRequest $request)
     {
-        echo "<script>alert('已加入我的最愛'); location.href ='../';</script>";
-        if(Auth::check())
-        {
-            $data4 = DB::table('favorites')->where('recipe_id',$request)->get();
-            foreach ($data4 as $favorite)
-            {
-                if($favorite->user_id==auth()->user()->id)
-                    $status='yes';
-            }
-            if ($status=='no')
-            {
-                DB::table('favorites')->insert(['user_id'=>auth()->user()->id, 'recipe_id'=>$request]);
-                echo "<script>alert('已加入我的最愛'); location.href='../';</script>";
-            }
-            else if($status=='yes')
-            {
-                echo "<script>alert('該食譜已在我的最愛');</script>";
-            }
-        }
-        //return view('recipes.index');
+       //
+    }
+
+
+    public function search()
+    {
+        $f_search=$_GET['fsearch'];
+        $data3 = DB::table('favorites')->where('name', 'like', '%'.$f_search.'%')->get();
+        return view('favorite', ['favorites' => $data3]);
     }
 
     /**
@@ -64,9 +60,9 @@ class FavoriteController extends Controller
      * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function show(Favorite $favorite)
+    public function show($favorite)
     {
-        //
+
     }
 
     /**

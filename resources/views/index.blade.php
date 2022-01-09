@@ -62,7 +62,6 @@
                                 步驟：<br>{{ $show->step }}<br>
                         </h3>
                         <div  class="div2">
-{{--                            <a href="{{route('recipes.create',$show->id)}}">加入我的最愛</a>--}}
                             <form action='{{route('recipes.create',$show->id)}}'>
                                 <button class="btn btn-outline-dark" type="submit" style="background-color: lavender;">加入我的最愛</button>
                             </form>
