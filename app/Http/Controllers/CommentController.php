@@ -21,7 +21,7 @@ class CommentController extends Controller
         $id=$_SESSION['id'];
         $data = DB::table('comments')->where('recipe_id',$id)->get();
         $data2 = DB::table('recipes')->where('id',$id)->get();
-        return view('index',['comments' => $data], ['recipe2' => $data2]);
+        return view('index', ['recipe2' => $data2]);
     }
 
     /**
