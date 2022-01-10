@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreRecipemanageRequest;
 use App\Http\Requests\UpdateRecipemanageRequest;
 use Illuminate\Support\Facades\DB;
+use mysql_xdevapi\Table;
 
 
 class RecipemanageController extends Controller
@@ -65,11 +66,10 @@ class RecipemanageController extends Controller
      * @param  \App\Models\Recipemanage  $recipemanage
      * @return \Illuminate\Http\Response
      */
-    public function edit(Recipemanage $recipemanage,$id)
+    public function edit($id)
     {
         $data = Recipe::find($id);
         return view('manage.recipes.edit', ['recipe' => $data]);
-
     }
 
     /**
@@ -79,17 +79,26 @@ class RecipemanageController extends Controller
      * @param  \App\Models\Recipemanage  $recipemanage
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRecipemanageRequest $request, Recipemanage $recipemanage,$id)
+    public function update(UpdateRecipemanageRequest $request,$id)
     {
-        $recipe=Recipe::find($id);
-        $recipe->update(['name' => $_POST['name']]);
-        $recipe->update(['content' => $_POST['content']]);
-        $recipe->update(['person' => $_POST['person']]);
-        $recipe->update(['quan' => $_POST['quantity']]);
-        $recipe->update(['content' => $_POST['content']]);
-        $recipe->update(['photo' => $_POST['photo']]);
+          $recipe=Recipe::find($id);
 
-        return redirect()->route('admin.recipes.index');
+        $recipe->update(['name' =>  $_POST['name1']]);
+        $recipe->update(['content' =>  $_POST['content1']]);
+        $recipe->update(['person' =>  $_POST['person1']]);
+        $recipe->update(['time' =>  $_POST['time1']]);
+        $recipe->update(['material' =>  $_POST['material1']]);
+        $recipe->update(['step' =>  $_POST['step1']]);
+        $recipe->update(['photo' =>  $_POST['photo1']]);
+        if($_POST['status1']=='0')
+            $recipe->update(['status' => '1']);
+        else
+            $recipe->update(['status' => '0']);
+        //return redirect()->route('manage.recipes.index');
+        //$recipe=Recipe::find($id);
+        //$recipe->update($request->all());
+        return redirect()->route('manage.recipes.index');
+
     }
 
     /**

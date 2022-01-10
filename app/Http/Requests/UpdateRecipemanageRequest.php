@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateRecipemanageRequest extends FormRequest
 {
@@ -11,11 +12,10 @@ class UpdateRecipemanageRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
-        return false;
-    }
-
+    //public function authorize()
+    //{
+        //return ;
+    //}
     /**
      * Get the validation rules that apply to the request.
      *

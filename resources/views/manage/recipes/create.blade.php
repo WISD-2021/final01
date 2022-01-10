@@ -11,7 +11,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li class="active">
-                    <i class="fa fa-edit"></i> 食譜管理
+                    <i class="fa fa-edit"></i>食譜管理
                 </li>
             </ol>
         </div>

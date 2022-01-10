@@ -30,33 +30,65 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <form action="/admin/posts/{{$recipe->id}}" method="POST" role="form">
+            <form action="/manage/recipes/{{$recipe->id}}" method="POST" role="form">
                 @method('PATCH')
                 @csrf
                 <div class="form-group">
-                    <label for="title">標題：</label>
-                    <input name="title" class="form-control" placeholder="請輸入食譜標題" value="{{old('title',$recipe->title)}}">
+                    <label for="name1">標題：</label>
+                    <input name="name1" class="form-control" name="name" value="{{old('name',$recipe->name)}}">
                 </div>
 
                 <div class="form-group">
-                    <label for="content">簡介：</label>
-                    <textarea id="content" name="content" class="form-control" rows="10"> {{ old('content',$recipe->content) }}</textarea>
+                    <label for="content1">簡介：</label>
+                    <textarea name="content1" class="form-control" rows="10"> {{ old('content',$recipe->content) }}</textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="content">幾人份：</label>
-                    <textarea id="content" name="content" class="form-control" rows="10"> {{ old('person',$recipe->person) }}</textarea>
+                    <label for="person1">幾人份：</label>
+                    <textarea  name="person1" class="form-control" rows="10"> {{ old('person',$recipe->person) }}</textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="content">製作時長：</label>
-                    <textarea id="content" name="content" class="form-control" rows="10"> {{ old('time',$recipe->time) }}</textarea>
+                    <label for="time1">製作時長：</label>
+                    <textarea  name="time1" class="form-control" rows="10"> {{ old('time',$recipe->time) }}</textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="content">步驟：</label>
-                    <textarea id="content" name="content" class="form-control" rows="10"> {{ old('step',$recipe->step) }}</textarea>
+                <label for="material1">製作食材：</label>
+                    <textarea name="material1" class="form-control" rows="10"> {{ old('material',$recipe->material) }}</textarea>
                 </div>
+
+                <div class="form-group">
+                    <label for="step1">步驟：</label>
+                    <textarea  name="step1" class="form-control" rows="10"> {{ old('step',$recipe->step) }}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="photo1">圖片：</label>
+                    <textarea name="photo1" class="form-control" rows="10">{{ old('photo',$recipe->photo) }}</textarea>
+                </div>
+
+                @if($recipe->status=='0')
+                    <div class="form-group">
+                        <label for="status1">上傳狀態：</label>
+                        <label class="radio-inline" for="t1">
+                            <input type="radio" name="status1" id="0" value="未上傳" checked>未上傳
+                        </label>
+                        <label class="radio-inline" for="t2">
+                            <input type="radio" name="status1" id="1" value="已上傳">已上傳
+                        </label>
+                    </div>
+                @else
+                    <div class="form-group">
+                        <label for="status1">上傳狀態：</label>
+                        <label class="radio-inline" for="t1">
+                            <input type="radio" name="status1" id="0" value="未上傳">未上傳
+                        </label>
+                        <label class="radio-inline" for="t2">
+                            <input type="radio" name="status1" id="1" value="已上傳" checked>已上傳
+                        </label>
+                    </div>
+                @endif
 
                 <div class="text-right">
                     <button type="submit" class="btn btn-success">更新</button>
