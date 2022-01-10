@@ -11,7 +11,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li class="active">
-                    <i class="fa fa-edit"></i> 食譜管理
+                    <i class="fa fa-edit"></i>食譜管理
                 </li>
             </ol>
         </div>
@@ -33,7 +33,6 @@
             <form action="/manage/recipes" method="POST" role="form">
                 @method('POST')
                 @csrf
-
 
                 <div class="form-group">
                     <label for="name">標題：</label>

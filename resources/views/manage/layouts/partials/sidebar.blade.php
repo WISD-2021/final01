@@ -10,34 +10,25 @@
         </button>
         <a class="navbar-brand" href="{{ route('manage.recipes.index') }}">管理後台</a>
     </div>
-    <!-- Top Menu Items -->
-    <ul class="nav navbar-right top-nav">
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                </li>
-            </ul>
-        </li>
-    </ul>
-    <div >
+
+    <div>
         <ul class="nav navbar-nav side-nav">
-            <li class="active">
-                <a href="{{ route('manage.dashboard.index') }}"><i class="fa fa-fw fa-dashboard"></i> 主控台</a>
+            <li class="nav-item">
+                <a href="{{ route('manage.dashboard.index') }}"><i></i>主控台</a>
             </li>
-            <li>
-                <a href="{{ route('manage.recipes.index') }}"><i class="fa fa-fw fa-edit"></i> 食譜管理</a>
+            <li class="nav-item">
+                <a href="{{ route('manage.recipes.index') }}"><i></i>食譜管理</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('recipes.index') }}"><i></i>回主頁</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    {{ __('登出') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" ">
+                    @csrf
+                </form>
             </li>
         </ul>
     </div>

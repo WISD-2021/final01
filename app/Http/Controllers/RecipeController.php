@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateRecipeRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+
 class RecipeController extends Controller
 {
     /**
@@ -17,8 +18,12 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        $data = DB::table('recipes')->orderBy('id','ASC')->get();
-        return view('index', ['recipes' => $data]);
+        if(Auth::check())
+        {
+            $data = DB::table('recipes')->where('status','0')->get();
+            return view('index',['recipes' => $data]);
+        }
+
     }
 
     /**
@@ -68,7 +73,7 @@ class RecipeController extends Controller
      */
     public function show($recipe)
     {
-        $data2 = DB::table('recipes')->where('id',$recipe)->get();
+        $data2 = DB::table('recipes')->where('status','0')->get();;
         return view('index', ['recipes' => $data2], ['recipe2' => $data2]);
     }
 
