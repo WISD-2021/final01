@@ -73,14 +73,14 @@ class RecipeController extends Controller
      */
     public function show($recipe)
     {
-        $data2 = DB::table('recipes')->where('status','0')->get();;
+        $data2 = DB::table('recipes')->where('id','=',$recipe)->where('status','=','0')->get();
         return view('index', ['recipes' => $data2], ['recipe2' => $data2]);
     }
 
     public function search()
     {
         $search=$_GET['search'];
-        $data3 = DB::table('recipes')->where('name', 'like', '%'.$search.'%')->get();
+        $data3 = DB::table('recipes')->where('name', 'like', '%'.$search.'%')->where('status','=','0')->get();
         return view('index', ['recipes' => $data3]);
 
     }

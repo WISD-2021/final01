@@ -15,7 +15,8 @@ class HomeController extends Controller
     public function index()
     {
         $data = DB::table('recipes')->orderBy('id','ASC')->get();
-        return view('index', ['recipes' => $data]);
+        //return view('index', ['recipes' => $data]);
+        return redirect()->route('recipes.index');
     }
 
     /**
