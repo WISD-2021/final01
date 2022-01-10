@@ -17,6 +17,9 @@
                     <a href="{{ route('recipes.index') }}">首頁</a>
                 </li>
                 <li>
+                    <a href="{{ route('favorites.index') }}">我的最愛</a>
+                </li>
+                <li>
                     <a href="{{ route('manage.recipes.index') }}">管理後台</a>
                 </li>
                 <li class="nav-item">

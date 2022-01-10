@@ -34,7 +34,7 @@
             float: left;
             margin-left: 5%;
             margin-right: 5%;
-            margin-top: 8%;
+            margin-top: 12%;
             margin-bottom: 2%;
         }
         .div2
