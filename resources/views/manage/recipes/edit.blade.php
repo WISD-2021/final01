@@ -72,20 +72,21 @@
                     <div class="form-group">
                         <label for="status1">上傳狀態：</label>
                         <label class="radio-inline" for="t1">
-                            <input type="radio" name="status1" id="0" value="未上傳" checked>未上傳
+                            <input type="radio" name="status1" id="0" value="已上傳" checked>已上傳
                         </label>
+
                         <label class="radio-inline" for="t2">
-                            <input type="radio" name="status1" id="1" value="已上傳">已上傳
+                            <input type="radio" name="status1" id="1" value="未上傳">未上傳
                         </label>
                     </div>
                 @else
                     <div class="form-group">
                         <label for="status1">上傳狀態：</label>
                         <label class="radio-inline" for="t1">
-                            <input type="radio" name="status1" id="0" value="未上傳">未上傳
+                            <input type="radio" name="status1" id="0" value="已上傳">已上傳
                         </label>
                         <label class="radio-inline" for="t2">
-                            <input type="radio" name="status1" id="1" value="已上傳" checked>已上傳
+                            <input type="radio" name="status1" id="1" value="未上傳" checked>未上傳
                         </label>
                     </div>
                 @endif

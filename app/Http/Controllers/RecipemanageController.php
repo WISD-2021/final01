@@ -20,9 +20,8 @@ class RecipemanageController extends Controller
      */
     public function index()
     {
-        $recipes=Recipe::orderBy('id','DESC')->get();
-        $data=['recipes'=>$recipes];
-        return view('manage.recipes.index',$data);
+        $data = DB::table('recipes')->where('user_id',auth()->user()->id)->get();
+        return view('manage.recipes.index',['recipes' => $data]);;
     }
 
     /**
@@ -68,8 +67,10 @@ class RecipemanageController extends Controller
      */
     public function edit($id)
     {
-        $data = Recipe::find($id);
-        return view('manage.recipes.edit', ['recipe' => $data]);
+            $data = Recipe::find($id);
+            return view('manage.recipes.edit', ['recipe' => $data]);
+
+
     }
 
     /**
@@ -81,8 +82,7 @@ class RecipemanageController extends Controller
      */
     public function update(UpdateRecipemanageRequest $request,$id)
     {
-          $recipe=Recipe::find($id);
-
+        $recipe=Recipe::find($id);
         $recipe->update(['name' =>  $_POST['name1']]);
         $recipe->update(['content' =>  $_POST['content1']]);
         $recipe->update(['person' =>  $_POST['person1']]);
@@ -90,6 +90,7 @@ class RecipemanageController extends Controller
         $recipe->update(['material' =>  $_POST['material1']]);
         $recipe->update(['step' =>  $_POST['step1']]);
         $recipe->update(['photo' =>  $_POST['photo1']]);
+
         if($_POST['status1']=='0')
             $recipe->update(['status' => '1']);
         else

@@ -63,7 +63,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="pager">
-                    <a href="{{route('home.index')}}">Home &rarr;</a>
+                    <a href="{{route('recipes.index')}}">Home &rarr;</a>
                 </ul>
                 <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
             </div>

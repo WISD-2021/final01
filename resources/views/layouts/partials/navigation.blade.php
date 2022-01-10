@@ -7,14 +7,14 @@
                 <span class="sr-only">Toggle navigation</span>
                 Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="{{ route('home.index') }}">Recipes</a>
+            <a class="navbar-brand" href="{{ route('recipes.index') }}">Recipes</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="{{ route('home.index') }}">首頁</a>
+                    <a href="{{ route('recipes.index') }}">首頁</a>
                 </li>
                 <li>
                     <a href="{{ route('manage.recipes.index') }}">管理後台</a>

@@ -39,7 +39,6 @@
                     <tbody>
                     @foreach($recipes as $recipe)
                         <tr>
-
                             <td style="text-align: left">{{$recipe->id}}</td>
                             <td style="text-align: left">{{$recipe->name}}</td>
                             <td style="text-align: left">{{Str::limit($recipe->content,150)}}</td>
@@ -47,7 +46,6 @@
                             <td style="text-align: left">{{ $recipe->time }}</td>
                             <td style="text-align: left">{{ $recipe->material }}<br></td>
                             <td style="text-align: left">{{ $recipe->step }}<br></td>
-
                             <td>
                                 <a class="btn btn-sm btn-primary" href="{{ route('manage.recipes.edit', $recipe->id) }}">編輯</a>
                                 <form action="{{ route('manage.recipes.destroy',  $recipe->id) }}" method="POST" style="display:inline">
