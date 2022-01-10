@@ -54,24 +54,45 @@
                                     $_SESSION['id']=$show->id;
                                 ?>
                     <div>
-                        <h3 class="div2" style="white-space: pre-line">
+                        <h4 class="div2" style="white-space: pre-line">
                                 簡介：{{Str::limit($show->content,150)}}<br>
                                 幾人份：{{ $show->person }}<br>
                                 製作時長：{{ $show->time }}<br>
                                 所需材料：<br>{{ $show->material }}<br>
                                 步驟：<br>{{ $show->step }}<br>
-                        </h3>
-                        <div  class="div2">
+                        </h4>
+                        <div class="div2">
                             <form action='{{route('recipes.create',$show->id)}}'>
-                                <button class="btn btn-outline-dark" type="submit" style="background-color: lavender;">加入我的最愛</button>
+                                <button class="btn btn-outline-dark" type="submit">加入我的最愛</button>
                             </form>
+                            <form method="GET" action='{{route('comments.create',$show->id)}}'>
+                                <p>
+                                    <textarea name="mycomment" rows="6" cols="40" required></textarea>
+                                    <button class="btn btn-outline-dark" type="submit">留言</button>
+                                </p>
+                            </form>
+
+                        <?php
+                          $comments = DB::table('comments')->where('recipe_id',$show->id)->get();
+                          $users = DB::table('users')->orderBy('id','ASC')->get();
+                        ?>
+                        @if(isset($comments))
+                        @foreach($comments as $cc)
+                            @if($cc->recipe_id == $show->id)
+                                @foreach($users as $user)
+                                    @if($user->id == $cc->user_id)
+                                         <h6 class="div3" style="white-space: pre-line">
+                                             {{ $user->name }}：{{Str::limit($cc->content,150)}}
+                                         </h6>
+                                     @endif
+                                @endforeach
+                             @endif
+                        @endforeach
+                            @endif
                         </div>
-                    </div>
                             @endif
                         @endforeach
                     @endif
-
-
             <!-- Pager -->
 
             </div>

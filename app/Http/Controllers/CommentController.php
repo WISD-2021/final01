@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CommentController extends Controller
 {
@@ -15,7 +17,11 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        session_start();
+        $id=$_SESSION['id'];
+        $data = DB::table('comments')->where('recipe_id',$id)->get();
+        $data2 = DB::table('recipes')->where('id',$id)->get();
+        return view('index',['comments' => $data], ['recipe2' => $data2]);
     }
 
     /**
@@ -25,7 +31,14 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+        session_start();
+        $mycomment=$_GET['mycomment'];
+        $id=$_SESSION['id'];
+        if(Auth::check())
+        {
+            DB::table('comments')->insert(['user_id'=>auth()->user()->id, 'recipe_id'=>$id, 'content'=>$mycomment]);
+            return redirect()->route('recipes.index');
+        }
     }
 
     /**

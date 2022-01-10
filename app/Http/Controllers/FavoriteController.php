@@ -46,14 +46,6 @@ class FavoriteController extends Controller
        //
     }
 
-
-    public function search()
-    {
-        $f_search=$_GET['fsearch'];
-        $data3 = DB::table('favorites')->where('name', 'like', '%'.$f_search.'%')->get();
-        return view('favorite', ['favorites' => $data3]);
-    }
-
     /**
      * Display the specified resource.
      *
@@ -61,9 +53,9 @@ class FavoriteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($favorite)
-    {
+        {
 
-    }
+        }
 
     /**
      * Show the form for editing the specified resource.
