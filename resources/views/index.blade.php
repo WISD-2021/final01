@@ -83,6 +83,11 @@
                                     @if($user->id == $cc->user_id)
                                          <h6 class="div3" style="white-space: pre-line">
                                              {{ $user->name }}：{{Str::limit($cc->content,150)}}
+                                             <form action="{{ route('comments.destroy',$cc->id) }}" method="POST" style="display: inline">
+                                                 @method('DELETE')
+                                                 @csrf
+                                                 <button class="btn btn-outline-dark" type="submit">刪除評論</button>
+                                             </form>
                                          </h6>
                                      @endif
                                 @endforeach
