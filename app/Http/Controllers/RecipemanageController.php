@@ -108,7 +108,7 @@ class RecipemanageController extends Controller
      * @param  \App\Models\Recipemanage  $recipemanage
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Recipemanage $recipemanage,$id)
+    public function destroy($id)
     {
         Recipe::destroy($id);
         return redirect()->route('manage.recipes.index');

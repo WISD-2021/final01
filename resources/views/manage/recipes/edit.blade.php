@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                編輯文章 <small>編輯食譜內容</small>
+                編輯食譜<small>編輯食譜內容</small>
             </h1>
             <ol class="breadcrumb">
                 <li class="active">

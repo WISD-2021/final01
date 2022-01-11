@@ -48,10 +48,12 @@
                             <td style="text-align: left">{{ $recipe->step }}<br></td>
                             <td>
                                 <a class="btn btn-sm btn-primary" href="{{ route('manage.recipes.edit', $recipe->id) }}">編輯</a>
-                                <form action="{{ route('manage.recipes.destroy',  $recipe->id) }}" method="POST" style="display:inline">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button class="btn btn-sm btn-danger" type="submit">刪除</button>
+                                <!--<form action="{{ route('manage.recipes.destroy',  $recipe->id) }}" method="POST" style="display:inline">
+
+                                    <button class="btn btn-sm btn-danger" type="submit">刪除</button>-->
+                                <a href="{{ route('manage.recipes.destroy',$recipe->id) }}" class="btn btn-sm btn-danger" onClick="return confirm('確定要刪除此商品?')">刪除</a>
+
+
                                 </form>
                             </td>
                         </tr>
