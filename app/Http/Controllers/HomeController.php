@@ -14,11 +14,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = DB::table('recipes')->orderBy('id','ASC')->get();
-        //return view('index', ['recipes' => $data]);
-        return redirect()->route('recipes.index');
+        $data = DB::table('recipes')->where('status','0')->get();
+        return view('guest.index',['recipes' => $data]);
     }
 
+    public function search()
+    {
+        $search=$_GET['guestsearch'];
+        $data3 = DB::table('recipes')->where('name', 'like', '%'.$search.'%')->where('status','=','0')->get();
+        return view('guest.index', ['recipes' => $data3]);
+
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -46,9 +52,10 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($recipe)
     {
-        //
+        $data3 = DB::table('recipes')->where('id','=',$recipe)->where('status','=','0')->get();
+        return view('guest.index', ['recipes' => $data3], ['recipe1' => $data3]);
     }
 
     /**
