@@ -5,15 +5,15 @@
 @section('content')
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-{{--    <header class="intro-header" style="background-image: url('{{ asset('img/bg.jpg') }}')">--}}
+    {{--    <header class="intro-header" style="background-image: url('{{ asset('img/bg.jpg') }}')">--}}
     <header class="intro-header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-{{--                        <h1><font color="#a0522d">Recipes</font></h1>--}}
-{{--                        <hr class="small">--}}
-{{--                        <span class="subheading"><font color="#a0522d"><b>Welcome</b></font></span>--}}
+                        {{--                        <h1><font color="#a0522d">Recipes</font></h1>--}}
+                        {{--                        <hr class="small">--}}
+                        {{--                        <span class="subheading"><font color="#a0522d"><b>Welcome</b></font></span>--}}
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                 </button>
             </form>
             <div class="col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-1">
-                    @foreach($recipes as $recipe)
+                @foreach($recipes as $recipe)
                     <div class="div1">
                         <img src="../img/recipe/{{$recipe->photo}}" width="200" height="200">
                         <a href="#">
@@ -44,63 +44,92 @@
                             </h3>
                         </a>
                     </div>
-                     @endforeach
+                @endforeach
 
-                    @if(isset($recipe2))
-                        @foreach($recipe2 as $show)
-                            @if($show->id == $recipe->id)
-                                <?php
-                                    session_start();
-                                    $_SESSION['id']=$show->id;
-                                ?>
-                    <div>
-                        <h4 class="div2" style="white-space: pre-line">
-                                簡介：{{Str::limit($show->content,150)}}<br>
-                                幾人份：{{ $show->person }}<br>
-                                製作時長：{{ $show->time }}<br>
-                                所需材料：<br>{{ $show->material }}<br>
-                                步驟：<br>{{ $show->step }}<br>
-                        </h4>
-                        <div class="div2">
-                            <form action='{{route('recipes.create',$show->id)}}'>
-                                <button class="btn btn-outline-dark" type="submit">加入我的最愛</button>
-                            </form>
-                            <form method="GET" action='{{route('comments.create',$show->id)}}'>
-                                <p>
-                                    <textarea name="mycomment" rows="6" cols="40" required></textarea>
-                                    <button class="btn btn-outline-dark" type="submit">留言</button>
-                                </p>
-                            </form>
+                @if(isset($recipe2))
+                    @foreach($recipe2 as $show)
+                        @if($show->id == $recipe->id)
+                            <?php
+                            session_start();
+                            $_SESSION['id']=$show->id;
+                            ?>
+                            <div>
+                                <h4 class="div2" style="white-space: pre-line">
+                                    簡介：{{Str::limit($show->content,150)}}<br>
+                                    人數：{{ $show->person }}<br>
+                                    製作時長：{{ $show->time }}<br>
+                                    所需材料：<br>{{ $show->material }}<br>
+                                    步驟：<br>{{ $show->step }}<br>
+                                </h4>
+                                <div class="div2">
+                                    <form action='{{route('recipes.create',$show->id)}}'>
+                                        <button class="btn btn-outline-dark" type="submit">加入我的最愛</button>
+                                    </form>
+                                    <form method="GET" action='{{route('comments.create',$show->id)}}'>
+                                        <p style="margin-top: 30px; margin-bottom: 10px">
+                                            <textarea name="mycomment" rows="6" cols="40" required></textarea>
+                                            <button class="btn btn-outline-dark" type="submit">留言</button>
+                                        </p>
+                                    </form>
 
-                        <?php
-                          $comments = DB::table('comments')->where('recipe_id',$show->id)->get();
-                          $users = DB::table('users')->orderBy('id','ASC')->get();
-                        ?>
-                        @if(isset($comments))
-                        @foreach($comments as $cc)
-                            @if($cc->recipe_id == $show->id)
-                                @foreach($users as $user)
-                                    @if($user->id == $cc->user_id)
-                                         <h6 class="div3" style="white-space: pre-line">
-                                             {{ $user->name }}：{{Str::limit($cc->content,150)}}
-                                             <form action="{{ route('comments.destroy',$cc->id) }}" method="POST" style="display: inline">
-                                                 @method('DELETE')
-                                                 @csrf
-                                                 <button class="btn btn-outline-dark" type="submit">刪除評論</button>
-                                             </form>
-                                         </h6>
-                                     @endif
-                                @endforeach
-                             @endif
-                        @endforeach
+                                    <?php
+                                    $comments = DB::table('comments')->where('recipe_id',$show->id)->get();
+                                    $users = DB::table('users')->orderBy('id','ASC')->get();
+                                    ?>
+                                    @if(isset($comments))
+                                        @foreach($comments as $cc)
+                                            @if($cc->recipe_id == $show->id)
+                                                @foreach($users as $user)
+                                                    @if($user->id == $cc->user_id)
+                                                        <h6 style="white-space: pre-line">
+                                                            {{ $user->name }}：{{Str::limit($cc->content,150)}}
+                                                            <form action="{{ route('comments.destroy',$cc->id) }}" method="POST" style="display: inline">
+                                                                @method('DELETE')
+                                                                @csrf
+                                                                <button class="btn btn-outline-dark" type="submit" style="width:100px;height:30px; padding:5px 5px;">刪除評論</button>
+                                                            </form>
+                                                                <?php
+                                                                    $replies = DB::table('replies')->where('comment_id',$cc->id)->get();
+                                                                    //$_SESSION['cc_id']=$cc->id;
+                                                                ?>
+                                                                @if(isset($replies))
+                                                                <?php
+                                                                    $_SESSION['cc_id']=$cc->id;
+                                                                ?>
+                                                                    @foreach($replies as $rr)
+                                                                            @foreach($users as $user)
+                                                                                @if($user->id == $rr->user_id)
+                                                                                    <h6 class="div3" style="white-space: pre-line">
+                                                                                        {{ $user->name }}：{{Str::limit($rr->content,150)}}
+                                                                                @endif
+                                                                            @endforeach
+                                                                    @endforeach
+                                                                @endif
+
+                                                                <form  method="GET" action='{{route('replies.create',$cc->id)}}' style="display: inline">
+                                                                    <p style="margin-top: 10px; margin-bottom: 10px">
+                                                                        <?php
+                                                                            echo "<input name='cc_id' value='".$cc->id."' hidden>";
+                                                                        ?>
+                                                                         <textarea name="myreply" rows="2" cols="20" style=" padding:0px 0px;" required></textarea>
+                                                                         <button class="btn btn-outline-dark" type="submit" style="width:100px;height:30px; padding:5px 5px;">回復評論</button>
+                                                                    </p>
+                                                                </form>
+
+
+                                                        </h6>
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                </div>
                             @endif
-                        </div>
+                            @endforeach
                             @endif
-                        @endforeach
-                    @endif
-            <!-- Pager -->
+                            <!-- Pager -->
 
+                            </div>
             </div>
         </div>
-    </div>
 @endsection

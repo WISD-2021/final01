@@ -43,7 +43,7 @@ class FavoriteController extends Controller
      */
     public function store(StoreFavoriteRequest $request)
     {
-       //
+        //
     }
 
     /**
@@ -53,9 +53,9 @@ class FavoriteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($favorite)
-        {
+    {
 
-        }
+    }
 
     /**
      * Show the form for editing the specified resource.
