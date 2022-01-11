@@ -11,14 +11,27 @@
 
 ## 系統功能
 
--瀏覽平台首頁	
--搜尋食譜	
--會員新增食譜	
--修改食譜	
--會員刪除食譜	
--會員評論食譜
--會員回覆食譜留言	
--把食譜加入我的最愛	
+1.瀏覽平台首頁	
+2.搜尋食譜	
+3.會員新增食譜	
+4.修改食譜	
+5.會員刪除食譜	
+6.會員評論食譜
+7.會員回覆食譜留言	
+8.把食譜加入我的最愛	
+
+## 主頁
+
+![image](https://github.com/WISD-2021/final01/blob/fa8f258f4b2298d077cb6fc0d4e98b0e05a1dfe3/public/img/%E9%A6%96%E9%A0%81.png)
+
+## 新增我的最愛
+
+![image](https://github.com/WISD-2021/final01/blob/fa8f258f4b2298d077cb6fc0d4e98b0e05a1dfe3/public/img/%E5%8A%A0%E5%85%A5%E6%88%91%E7%9A%84%E6%9C%80%E6%84%9B.png)
+
+## 新增留言&回覆
+
+![image](https://github.com/WISD-2021/final01/blob/35c877b5dff5acaaea849d306a62c76ff0e52486/public/img/%E7%95%99%E8%A8%80.png)
+
 
 ## 主控台
 
@@ -44,14 +57,14 @@
 ![image](https://github.com/WISD-2021/final01/blob/fa8f258f4b2298d077cb6fc0d4e98b0e05a1dfe3/public/img/%E5%88%AA%E9%99%A4%E9%A3%9F%E8%AD%9C.png)
 
 
-##ERD
+## ERD
 
-![image](https://github.com/WISD-2021/final01/blob/fa8f258f4b2298d077cb6fc0d4e98b0e05a1dfe3/public/img/%E4%B8%BB%E6%8E%A7%E5%8F%B0.png)
+![image](https://github.com/WISD-2021/final01/blob/35c877b5dff5acaaea849d306a62c76ff0e52486/public/img/ERD.png)
 
 
-##資料庫綱要圖
+## 資料庫綱要圖
 
-![image](https://github.com/WISD-2021/final01/blob/1861ff01556f21f3bb73523997c55f6d3bfc2d3b/public/img/%E8%B3%87%E6%96%99%E8%A1%A8-Page-3.drawio.png)
+![image](https://github.com/WISD-2021/final01/blob/35c877b5dff5acaaea849d306a62c76ff0e52486/public/img/%E7%B6%B1%E8%A6%81.png)
 
 
 ##資料庫欄位設計
@@ -63,7 +76,7 @@
 
 食譜資料表
 
-![image](https://github.com/WISD-2021/final01/blob/fa8f258f4b2298d077cb6fc0d4e98b0e05a1dfe3/public/img/%E4%B8%BB%E6%8E%A7%E5%8F%B0.png)
+![image](https://github.com/WISD-2021/final01/blob/fa8f258f4b2298d077cb6fc0d4e98b0e05a1dfe3/public/img/%E8%B3%87%E6%96%99%E8%A1%A8-%E7%AC%AC5%E9%A0%81.drawio.png)
 
 
 留言資料表
@@ -85,7 +98,17 @@
 
 ## 前台:<a href="https://github.com/3A832097">3A832097鄧欣如</a>
 
+首頁:Route::get('/',[\App\Http\Controllers\RecipeController::class, 'index'])->name('recipes.index');
 
+新增留言:Route::post('comments', [\App\Http\Controllers\CommentController::class,'create'])->name('comments.create');
+
+刪除留言:Route::get('comments/{id}', [\App\Http\Controllers\CommentController::class,'destroy'])->name('Comment.destroy');
+
+刪除我的最愛:Route::get('favorites/{id}', [\App\Http\Controllers\FavoriteController::class,'destroy'])->name('Favorite.destroy');
+
+新增回覆:Route::get('Reply', [\App\Http\Controllers\ReplyController::class,'create'])->name('reply.create');
+
+搜尋:Route::get('recipessearch', [\App\Http\Controllers\RecipeController::class, 'search'])->name('recipes.search');
 
 ## 管理後台:<a href="https://github.com/3A832077">3A832077陳舒婷</a>
 
@@ -106,32 +129,36 @@
 
 ## 初始專案與DB負責的同學
 
-###初始專案:<a href="https://github.com/3A832097">3A832097鄧欣如</a>
+### 初始專案:<a href="https://github.com/3A832097">3A832097鄧欣如</a>
 
-###資料庫建置:<a href="https://github.com/3A832097">3A832097鄧欣如</a>
+### 資料庫建置:<a href="https://github.com/3A832097">3A832097鄧欣如</a>
 
-##網站安裝(系統復原步驟)
-複製 https://github.com/WISD-2021/final01.git本系統在GitHub的專案
-打開 Source tree，點選 Clone 後，輸入以下資料Source Path:https://github.com/WISD-2021/final01.git Destination Path:C:\wagon\uwamp\www\final01 打開cmder，切換至專案所在資料夾，cd final01
-在cmder輸入以下命令，以復原此系統：
+### 資料庫資料:<a href="https://github.com/3A832097">3A832097鄧欣如</a>
+
+## 網站安裝(系統復原步驟)
+1.複製 https://github.com/WISD-2021/final01.git本系統在GitHub的專案
+2.打開 Source tree，點選 Clone 後，輸入以下資料Source Path:https://github.com/WISD-2021/final01.git Destination Path:C:\wagon\uwamp\www\final01 打開cmder，切換至專案所在資料夾，cd final01
+3.在cmder輸入以下命令，以復原此系統：
 composer install
 composer run‐script post‐root‐package‐install
 composer run‐script post‐create‐project‐cmd
-將專案打開 在.env檔案內輸入資料庫主機IP、Port、名稱、與帳密如下：：
+4.將專案打開 在.env檔案內輸入資料庫主機IP、Port、名稱、與帳密如下：：
 DB_HOST=127.0.0.1
 DB_PORT=33060
 DB_DATABASE=final01
 DB_USERNAME=root
 DB_PASSWORD=root
-復原完，建立資料庫
+5.復原完，建立資料庫
 先進Adminer建立final01的資料庫
-建立好之後開啟cmder輸入以下指令： artisan migrate(成功執行後會復原所有資料表)
-artisan db:seed(建立假資料)
-進入adminer
+6.建立好之後開啟cmder輸入以下指令： artisan migrate(成功執行後會復原所有資料表)
+7.tisan db:seed(建立假資料)
+8.adminer
 資料庫系統:MYSQL
 伺服器:localhost:33060
 帳號:root
 密碼:root
-在UwAmp下，點選Apache config，選擇port8000，並在Document Root 輸入{DOCUMENTPATH}/final02/public
+9.wAmp下，點選Apache config，選擇port8000，並在Document Root 輸入{DOCUMENTPATH}/final02/public
 
-##系統使用者測試帳號
+## 系統使用者測試帳號
+使用者帳號:sf123@gmail.com
+密碼:12345678
