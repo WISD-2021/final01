@@ -22,7 +22,7 @@
 
 ## 主控台
 
-<img src=""C:\Users\Shu-Ting Chen\Downloads\主控台.png"">
+<img src="https://imgur.com/gallery/rL7RULH">
 
 ## 食譜管理
 
@@ -48,25 +48,25 @@
 
 <img src="https://imgur.com/gallery/lKQkc51">
 
-資料庫欄位設計
+##資料庫欄位設計
 
-會員資料表
+###會員資料表
 
 <img src="https://imgur.com/gallery/RJA7omn">
 
-食譜資料表
+###食譜資料表
 
 <img src="https://imgur.com/gallery/nKuOy5b">
 
-留言資料表
+###留言資料表
 
 <img src="https://imgur.com/gallery/N67R9Xf">
 
-回覆資料表
+###回覆資料表
 
 <img src="https://imgur.com/gallery/qvN2y7e">
 
-我的最愛資料表
+###我的最愛資料表
 
 <img src="https://imgur.com/gallery/5xxeCWP">
 
