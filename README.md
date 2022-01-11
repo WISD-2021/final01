@@ -1,12 +1,3 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
 ## 系統名稱:食譜分享平台
 
 ## 系統功能
@@ -136,29 +127,29 @@
 ### 資料庫資料:<a href="https://github.com/3A832097">3A832097鄧欣如</a>
 
 ## 網站安裝(系統復原步驟)
-1.複製 https://github.com/WISD-2021/final01.git本系統在GitHub的專案
-2.打開 Source tree，點選 Clone 後，輸入以下資料Source Path:https://github.com/WISD-2021/final01.git Destination Path:C:\wagon\uwamp\www\final01 打開cmder，切換至專案所在資料夾，cd final01
-3.在cmder輸入以下命令，以復原此系統：
-composer install
-composer run‐script post‐root‐package‐install
-composer run‐script post‐create‐project‐cmd
-4.將專案打開 在.env檔案內輸入資料庫主機IP、Port、名稱、與帳密如下：：
-DB_HOST=127.0.0.1
-DB_PORT=33060
-DB_DATABASE=final01
-DB_USERNAME=root
-DB_PASSWORD=root
-5.復原完，建立資料庫
-先進Adminer建立final01的資料庫
-6.建立好之後開啟cmder輸入以下指令： artisan migrate(成功執行後會復原所有資料表)
-7.tisan db:seed(建立假資料)
-8.adminer
-資料庫系統:MYSQL
-伺服器:localhost:33060
-帳號:root
-密碼:root
+1.複製 https://github.com/WISD-2021/final01.git本系統在GitHub的專案 <br>
+2.打開 Source tree，點選 Clone 後，輸入以下資料Source Path:https://github.com/WISD-2021/final01.git Destination Path:C:\wagon\uwamp\www\final01 打開cmder，切換至專案所在資料夾，cd final01<br>
+3.在cmder輸入以下命令，以復原此系統：<br>
+composer install<br>
+composer run‐script post‐root‐package‐install<br>
+composer run‐script post‐create‐project‐cmd<br>
+4.將專案打開 在.env檔案內輸入資料庫主機IP、Port、名稱、與帳密如下：<br>
+DB_HOST=127.0.0.1<br>
+DB_PORT=33060<br>
+DB_DATABASE=final01<br>
+DB_USERNAME=root<br>
+DB_PASSWORD=root<br>
+5.復原完，建立資料庫<br>
+先進Adminer建立final01的資料庫<br>
+6.建立好之後開啟cmder輸入以下指令： artisan migrate(成功執行後會復原所有資料表)<br>
+7.tisan db:seed(建立假資料)<br>
+8.adminer<br>
+資料庫系統:MYSQL<br>
+伺服器:localhost:33060<br>
+帳號:root<br>
+密碼:root<br>
 9.wAmp下，點選Apache config，選擇port8000，並在Document Root 輸入{DOCUMENTPATH}/final02/public
 
 ## 系統使用者測試帳號
-使用者帳號:sf123@gmail.com
+使用者帳號:sf123@gmail.com<br>
 密碼:12345678
