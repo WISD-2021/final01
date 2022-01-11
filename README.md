@@ -2,14 +2,14 @@
 
 ## 系統功能
 
-1.瀏覽平台首頁	
-2.搜尋食譜	
-3.會員新增食譜	
-4.修改食譜	
-5.會員刪除食譜	
-6.會員評論食譜
-7.會員回覆食譜留言	
-8.把食譜加入我的最愛	
+1.瀏覽平台首頁<br>	
+2.搜尋食譜<br>	
+3.會員新增食譜<br>	
+4.修改食譜<br>
+5.會員刪除食譜<br>	
+6.會員評論食譜<br>
+7.會員回覆食譜留言<br>
+8.把食譜加入我的最愛<br>	
 
 ## 主頁
 
@@ -89,33 +89,33 @@
 
 ## 前台:<a href="https://github.com/3A832097">3A832097鄧欣如</a>
 
-首頁:Route::get('/',[\App\Http\Controllers\RecipeController::class, 'index'])->name('recipes.index');
+首頁<br>Route::get('/',[\App\Http\Controllers\RecipeController::class, 'index'])->name('recipes.index');
 
-新增留言:Route::post('comments', [\App\Http\Controllers\CommentController::class,'create'])->name('comments.create');
+新增留言<br>Route::post('comments', [\App\Http\Controllers\CommentController::class,'create'])->name('comments.create');
 
-刪除留言:Route::get('comments/{id}', [\App\Http\Controllers\CommentController::class,'destroy'])->name('Comment.destroy');
+刪除留言<br>Route::get('comments/{id}', [\App\Http\Controllers\CommentController::class,'destroy'])->name('Comment.destroy');
 
-刪除我的最愛:Route::get('favorites/{id}', [\App\Http\Controllers\FavoriteController::class,'destroy'])->name('Favorite.destroy');
+刪除我的最愛<br>Route::get('favorites/{id}', [\App\Http\Controllers\FavoriteController::class,'destroy'])->name('Favorite.destroy');
 
-新增回覆:Route::get('Reply', [\App\Http\Controllers\ReplyController::class,'create'])->name('reply.create');
+新增回覆<br>Route::get('Reply', [\App\Http\Controllers\ReplyController::class,'create'])->name('reply.create');
 
-搜尋:Route::get('recipessearch', [\App\Http\Controllers\RecipeController::class, 'search'])->name('recipes.search');
+搜尋<br>Route::get('recipessearch', [\App\Http\Controllers\RecipeController::class, 'search'])->name('recipes.search');
 
 ## 管理後台:<a href="https://github.com/3A832077">3A832077陳舒婷</a>
 
-主控台:Route::get('/', [\App\Http\Controllers\AdminDashboardController::class, 'index'])->name('manage.dashboard.index');
+主控台<br>Route::get('/', [\App\Http\Controllers\AdminDashboardController::class, 'index'])->name('manage.dashboard.index');
 
-儲存食譜:Route::post('recipes', [\App\Http\Controllers\RecipemanageController::class,'store'])->name('manage.recipes.store');
+儲存食譜<br>Route::post('recipes', [\App\Http\Controllers\RecipemanageController::class,'store'])->name('manage.recipes.store');
 
-管理後台:Route::get('recipes', [\App\Http\Controllers\RecipemanageController::class, 'index'])->name('manage.recipes.index');
+管理後台<br>Route::get('recipes', [\App\Http\Controllers\RecipemanageController::class, 'index'])->name('manage.recipes.index');
 
-新增食譜頁面:Route::get('recipes/create', [\App\Http\Controllers\RecipemanageController::class, 'create'])->name('manage.recipes.create');
+新增食譜頁面<br>Route::get('recipes/create', [\App\Http\Controllers\RecipemanageController::class, 'create'])->name('manage.recipes.create');
 
-編輯食譜頁面:Route::get('recipes/{id}/edit', [\App\Http\Controllers\RecipemanageController::class, 'edit'])->name('manage.recipes.edit');
+編輯食譜頁面<br>Route::get('recipes/{id}/edit', [\App\Http\Controllers\RecipemanageController::class, 'edit'])->name('manage.recipes.edit');
 
-編輯食譜:Route::patch('recipes/{id}', [\App\Http\Controllers\RecipemanageController::class, 'update'])->name('manage.recipes.update');
+編輯食譜<br>Route::patch('recipes/{id}', [\App\Http\Controllers\RecipemanageController::class, 'update'])->name('manage.recipes.update');
 
-刪除食譜:Route::get('recipes/{id}', [\App\Http\Controllers\RecipemanageController::class, 'destroy'])->name('manage.recipes.destroy');
+刪除食譜<br>Route::get('recipes/{id}', [\App\Http\Controllers\RecipemanageController::class, 'destroy'])->name('manage.recipes.destroy');
 
 
 ## 初始專案與DB負責的同學
