@@ -18,12 +18,8 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        if(Auth::check())
-        {
             $data = DB::table('recipes')->where('status','0')->get();
             return view('index',['recipes' => $data]);
-        }
-
     }
 
     /**

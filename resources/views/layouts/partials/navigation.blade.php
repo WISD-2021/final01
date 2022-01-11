@@ -11,27 +11,42 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
+        @if(\Illuminate\Support\Facades\Auth::check())
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{{ route('recipes.index') }}">首頁</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('favorites.index') }}">我的最愛</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('manage.recipes.index') }}">管理後台</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            {{ __('登出') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        @else
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="{{ route('recipes.index') }}">首頁</a>
                 </li>
                 <li>
-                    <a href="{{ route('favorites.index') }}">我的最愛</a>
+                    <a href="{{ route('login') }}">我的最愛</a>
                 </li>
                 <li>
-                    <a href="{{ route('manage.recipes.index') }}">管理後台</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        {{ __('登出') }}
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </li>
+                    <a href="{{ route('login') }}">登入</a>
             </ul>
         </div>
+        @endif
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
