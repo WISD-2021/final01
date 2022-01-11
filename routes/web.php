@@ -13,8 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[\App\Http\Controllers\RecipeController::class, 'index'])
-    ->name('recipes.index');
+Route::get('/',[\App\Http\Controllers\RecipeController::class, 'index'])->name('recipes.index');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

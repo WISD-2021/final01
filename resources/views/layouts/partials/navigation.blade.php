@@ -34,18 +34,19 @@
                 </ul>
             </div>
         @else
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="{{ route('recipes.index') }}">首頁</a>
-                </li>
-                <li>
-                    <a href="{{ route('login') }}">我的最愛</a>
-                </li>
-                <li>
-                    <a href="{{ route('login') }}">登入</a>
-            </ul>
-        </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{{ route('recipes.index') }}">首頁</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('login') }}">我的最愛</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('login') }}">登入</a>
+                    </li>
+                </ul>
+            </div>
         @endif
         <!-- /.navbar-collapse -->
     </div>
