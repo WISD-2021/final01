@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Reply;
 use App\Http\Requests\StoreReplyRequest;
 use App\Http\Requests\UpdateReplyRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ReplyController extends Controller
 {
@@ -15,7 +17,12 @@ class ReplyController extends Controller
      */
     public function index()
     {
-        //
+        session_start();
+        //$id=$_SESSION['id'];
+        $data = DB::table('comments')->orderBy('id','ASC')->get();
+        $data2 = DB::table('replies')->orderBy('id','ASC')->get();
+
+        return view('index', ['comments' => $data], ['replies' => $data2]);
     }
 
     /**
@@ -25,7 +32,14 @@ class ReplyController extends Controller
      */
     public function create()
     {
-        //
+        session_start();
+        $myreply=$_GET['myreply'];
+        $id=$_GET['cc_id'];
+        if(Auth::check())
+        {
+            DB::table('replies')->insert(['user_id'=>auth()->user()->id, 'comment_id'=>$id, 'content'=>$myreply]);
+            return redirect()->route('recipes.index');
+        }
     }
 
     /**
