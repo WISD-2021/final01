@@ -22,7 +22,7 @@ class CreateRecipesTable extends Migration
             $table->string('time');
             $table->string('material');
             $table->string('step');
-            $table->string('photo_path', 2048);
+            $table->string('photo', 2048);
             $table->integer('status');
             $table->timestamps();
         });
