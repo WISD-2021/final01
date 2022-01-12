@@ -64,8 +64,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="photo1">圖片：</label>
-                    <textarea name="photo1" class="form-control" rows="10">{{ old('photo',$recipe->photo) }}</textarea>
+                        <label for="photo1">圖片：</label>
+                        <input type="file" name="photo1" value="{{ old('photo',$recipe->photo) }}">
                 </div>
 
                 @if($recipe->status=='0')

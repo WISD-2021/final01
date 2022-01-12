@@ -85,7 +85,7 @@ class RecipemanageController extends Controller
         $recipe=Recipe::find($id);
 
         $recipe->update($request->all());
-        
+
         return redirect()->route('manage.recipes.index');
 
     }

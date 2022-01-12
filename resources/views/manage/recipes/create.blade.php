@@ -66,7 +66,7 @@
 
                 <div class="form-group">
                     <label for="photo">圖片：</label>
-                    <textarea id="photo" name="photo" class="form-control" rows="10"></textarea>
+                    <input type="file" name="photo" >
                 </div>
 
                 <div class="form-group">
