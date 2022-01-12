@@ -127,7 +127,7 @@
 ### 資料庫資料:<a href="https://github.com/3A832097">3A832097鄧欣如</a>
 
 ## 網站安裝(系統復原步驟)
-1.複製 https://github.com/WISD-2021/final01.git本系統在GitHub的專案 <br>
+1.複製 https://github.com/WISD-2021/final01.git 本系統在GitHub的專案 <br>
 2.打開 Source tree，點選 Clone 後，輸入以下資料Source Path:https://github.com/WISD-2021/final01.git Destination Path:C:\wagon\uwamp\www\final01 打開cmder，切換至專案所在資料夾，cd final01<br>
 3.在cmder輸入以下命令，以復原此系統：<br>
 composer install<br>

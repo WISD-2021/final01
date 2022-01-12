@@ -83,21 +83,9 @@ class RecipemanageController extends Controller
     public function update(UpdateRecipemanageRequest $request,$id)
     {
         $recipe=Recipe::find($id);
-        $recipe->update(['name' =>  $_POST['name1']]);
-        $recipe->update(['content' =>  $_POST['content1']]);
-        $recipe->update(['person' =>  $_POST['person1']]);
-        $recipe->update(['time' =>  $_POST['time1']]);
-        $recipe->update(['material' =>  $_POST['material1']]);
-        $recipe->update(['step' =>  $_POST['step1']]);
-        $recipe->update(['photo' =>  $_POST['photo1']]);
 
-        if($_POST['status1']=='0')
-            $recipe->update(['status' => '1']);
-        else
-            $recipe->update(['status' => '0']);
-        //return redirect()->route('manage.recipes.index');
-        //$recipe=Recipe::find($id);
-        //$recipe->update($request->all());
+        $recipe->update($request->all());
+        
         return redirect()->route('manage.recipes.index');
 
     }
