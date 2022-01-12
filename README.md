@@ -50,19 +50,19 @@
 
 ## ERD
 
-![image](https://github.com/WISD-2021/final01/blob/35c877b5dff5acaaea849d306a62c76ff0e52486/public/img/ERD.png)
+![image](https://github.com/WISD-2021/final01/blob/0e9b080add212ab07a09d26e82db5e1f5b843078/public/img/%E8%B3%87%E6%96%99%E8%A1%A8-Page-2.drawio.png)
 
 
 ## 資料庫綱要圖
 
-![image](https://github.com/WISD-2021/final01/blob/35c877b5dff5acaaea849d306a62c76ff0e52486/public/img/%E7%B6%B1%E8%A6%81.png)
+![image](https://github.com/WISD-2021/final01/blob/0e9b080add212ab07a09d26e82db5e1f5b843078/public/img/%E7%B6%B1%E8%A6%81.png)
 
 
-##資料庫欄位設計
+## 資料庫欄位設計
 
 會員資料表
 
-![image](https://github.com/WISD-2021/final01/blob/fa8f258f4b2298d077cb6fc0d4e98b0e05a1dfe3/public/img/user.png)
+![image](https://github.com/WISD-2021/final01/blob/7bb0837eed48fe448e0303abe53aaf8766b5c0f4/public/img/%E6%9C%83%E5%93%A1.png)
 
 
 食譜資料表
@@ -148,7 +148,7 @@ DB_PASSWORD=root<br>
 伺服器:localhost:33060<br>
 帳號:root<br>
 密碼:root<br>
-9.wAmp下，點選Apache config，選擇port8000，並在Document Root 輸入{DOCUMENTPATH}/final02/public
+9.wAmp下，點選Apache config，選擇port8000，並在Document Root 輸入{DOCUMENTPATH}/final01/public
 
 ## 系統使用者測試帳號
 使用者帳號:sf123@gmail.com<br>
